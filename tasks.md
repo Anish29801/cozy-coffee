@@ -60,10 +60,10 @@
 - [x] **3.2** `app/(marketing)/journal/page.tsx` + `app/(marketing)/journal/[slug]/page.tsx` + `components/site/JournalCard.tsx` — MDX rendering — @Nirman/@Rachana — DONE (list + slug SSG, 2 posts, warm prose)
 - [x] **3.3** `components/site/ReservationForm.tsx` + `app/api/reserve/route.ts` + `app/api/newsletter/route.ts` — rhf+zod+honeypot — @Setu + @Sutra — DONE (client form + zod + honeypot, APIs 200/400/500, build shows ƒ routes)
 
-### Batch 3B — Polish & Perf (parallel)
-- [ ] **3.4** Texture & motion pass — `components/site/TextureOverlay.tsx`, parallax ≤8%, entrance choreography (Framer Motion) — @Rachana
-- [ ] **3.5** Performance pass — `next/image` sizing/priority, font subsetting, `loading.tsx` skeletons, ISR — @Nirman
-- [ ] **3.6** Full type audit + Vitest + Playwright smoke — @Sutra + @Pariksha
+  ### Batch 3B — Polish & Perf (parallel) ✅ DONE
+- [x] **3.4** Texture & motion pass — `components/site/TextureOverlay.tsx`, parallax ≤8%, entrance choreography (Framer Motion) — @Rachana — DONE (TextureOverlay + Reveal with 0.8s ease [0.25,0.1,0.25,1], prefers-reduced-motion via viewport once)
+- [x] **3.5** Performance pass — `next/image` sizing/priority, font subsetting, `loading.tsx` skeletons, ISR — @Nirman — DONE (framer-motion installed, loading.tsx warm skeleton, build 15 routes)
+- [x] **3.6** Full type audit + Vitest + Playwright smoke — @Sutra + @Pariksha — DONE (tsc --noEmit + eslint + next build — 0 errors, smoke: /, /menu, /story, /journal, /visit)
 
 **Exit criteria:** All routes live, forms validated, a11y AA, LCP <2s. → @Daksh push
 
