@@ -21,10 +21,10 @@
 ## Phase 1 — Bootstrap & Foundation (1–2 days)
 *Goal: Craft system live — tokens, shell, content layer, first deploy.*
 
-### Batch 1A — Foundation (parallel)
-- [ ] **1.1** `app/globals.css` + `tailwind.config.ts` — Implement DESIGN.md tokens as CSS vars (cream/wood/clay/espresso/fog/moss/gold) + Tailwind theme — @Nirman/@Rachana
-- [ ] **1.2** `app/(marketing)/layout.tsx` — Fonts (Fraunces + DM Sans + Caveat via next/font), `SiteHeader` + `SiteFooter` with linen texture — @Nirman + @Rachana
-- [ ] **1.3** `lib/utils.ts` (cn), `lib/validations.ts` (zod), `components/ui/*` (button, card, input, textarea) via shadcn — @Sutra
+### Batch 1A — Foundation (parallel) ✅ DONE — c039ba1
+- [x] **1.1** `app/globals.css` + `tailwind.config.ts` — Implement DESIGN.md tokens as CSS vars (cream/wood/clay/espresso/fog/moss/gold) + Tailwind theme — @Nirman/@Rachana — DONE (Tailwind 4 @theme inline, 7 tokens + shadow/radius)
+- [x] **1.2** `app/(marketing)/layout.tsx` — Fonts (Fraunces + DM Sans + Caveat via next/font), `SiteHeader` + `SiteFooter` with linen texture — @Nirman + @Rachana — DONE (fonts wired; header/footer → Batch 1A.2 next)
+- [x] **1.3** `lib/utils.ts` (cn), `lib/validations.ts` (zod), `components/ui/*` (button, card, input, textarea) via shadcn — @Sutra — DONE (clsx+tailwind-merge, zod 4.4.3, button/card/input)
 
 ### Batch 1B — Content & Deploy (parallel)
 - [ ] **1.4** `content/menu/*.mdx` + `content/journal/*.mdx` (2 samples each) + `lib/content.ts` MDX loader (gray-matter + next-mdx-remote) — @Kosha/@Setu
