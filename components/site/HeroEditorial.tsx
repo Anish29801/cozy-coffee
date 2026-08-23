@@ -12,8 +12,8 @@ export function HeroEditorial() {
         }}
       />
 
-      <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-        <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-center">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-14 md:py-20">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-[1.1fr_0.9fr] items-center">
           {/* editorial copy */}
           <div className="relative">
             <p className="inline-flex items-center gap-2 text-xs tracking-[0.18em] uppercase text-clay">
@@ -21,9 +21,9 @@ export function HeroEditorial() {
               Since 2018 — Neighborhood living room
             </p>
 
-            <h1 className="mt-4 font-display text-4xl md:text-[52px] font-semibold leading-[0.95] tracking-tight text-espresso">
+            <h1 className="mt-4 font-display text-[32px] sm:text-4xl md:text-[52px] font-semibold leading-[0.95] tracking-tight text-espresso">
               A warm hug
-              <span className="font-hand font-normal text-clay text-5xl md:text-6xl block -mt-1">in every cup.</span>
+              <span className="font-hand font-normal text-clay text-[38px] sm:text-5xl md:text-6xl block -mt-1">in every cup.</span>
             </h1>
 
             <p className="mt-5 max-w-xl text-[17px] leading-7 text-espresso/70">
@@ -31,7 +31,7 @@ export function HeroEditorial() {
               conversation. Your usual table is already waiting — wood, light, and a little steam.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
               <Link href="/menu">
                 <Button size="lg">See the menu</Button>
               </Link>
@@ -56,7 +56,7 @@ export function HeroEditorial() {
               </p>
             </div>
 
-            <div className="mt-10 flex items-center gap-6 text-sm text-espresso/60">
+            <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-espresso/60">
               <span className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-moss" /> 4.9 from 600+ neighbors
               </span>

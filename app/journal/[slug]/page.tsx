@@ -22,7 +22,7 @@ export default async function JournalPostPage({ params }: { params: Promise<{ sl
   if (!post) notFound();
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-10">
+    <article className="mx-auto max-w-3xl px-4 sm:px-6 py-10">
       <p className="text-xs tracking-[0.16em] uppercase text-moss">
         {post.date} · {post.author} {post.tags && `· ${post.tags.join(" · ")}`}
       </p>
