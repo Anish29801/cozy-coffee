@@ -55,10 +55,10 @@
 ## Phase 3 — Depth & Utility (2–3 days)
 *Goal: Make it useful and fast.*
 
-### Batch 3A — Utility (parallel)
-- [ ] **3.1** `app/(marketing)/visit/page.tsx` — Hours, map embed, amenities, parking, FAQs — @Rachana
-- [ ] **3.2** `app/(marketing)/journal/page.tsx` + `app/(marketing)/journal/[slug]/page.tsx` + `components/site/JournalCard.tsx` — MDX rendering — @Nirman/@Rachana
-- [ ] **3.3** `components/site/ReservationForm.tsx` + `app/api/reserve/route.ts` + `app/api/newsletter/route.ts` — rhf+zod+honeypot — @Setu + @Sutra
+  ### Batch 3A — Utility (parallel) ✅ DONE
+- [x] **3.1** `app/(marketing)/visit/page.tsx` — Hours, map embed, amenities, parking, FAQs — @Rachana — DONE (/visit with map placeholder, FAQs, warm CTA)
+- [x] **3.2** `app/(marketing)/journal/page.tsx` + `app/(marketing)/journal/[slug]/page.tsx` + `components/site/JournalCard.tsx` — MDX rendering — @Nirman/@Rachana — DONE (list + slug SSG, 2 posts, warm prose)
+- [x] **3.3** `components/site/ReservationForm.tsx` + `app/api/reserve/route.ts` + `app/api/newsletter/route.ts` — rhf+zod+honeypot — @Setu + @Sutra — DONE (client form + zod + honeypot, APIs 200/400/500, build shows ƒ routes)
 
 ### Batch 3B — Polish & Perf (parallel)
 - [ ] **3.4** Texture & motion pass — `components/site/TextureOverlay.tsx`, parallax ≤8%, entrance choreography (Framer Motion) — @Rachana
