@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export function SiteFooter() {
   return (
@@ -13,24 +13,24 @@ export function SiteFooter() {
             <p className="mt-3 text-sm leading-6 text-espresso/60 max-w-xs">
               Your usual table is waiting. Friendly, warm, and always together.
               <br />
-              <span className="font-hand text-base text-espresso/80">123 Warmth Lane Â· Open daily 7am</span>
+              <span className="font-hand text-base text-espresso/80">123 Warmth Lane · Open daily 7am</span>
             </p>
           </div>
 
           <div>
             <p className="text-xs tracking-[0.16em] uppercase text-espresso/50">Hours</p>
             <p className="mt-3 text-sm text-espresso/70">
-              Monâ€“Fri 7amâ€“7pm
+              Mon–Fri 7am–7pm
               <br />
-              Satâ€“Sun 8amâ€“6pm
+              Sat–Sun 8am–6pm
             </p>
             <p className="mt-4 text-xs tracking-[0.16em] uppercase text-espresso/50">Find us</p>
-            <p className="mt-2 text-sm text-espresso/70">Instagram Â· Maps Â· hello@cozy.coffee</p>
+            <p className="mt-2 text-sm text-espresso/70">Instagram · Maps · hello@cozy.coffee</p>
           </div>
 
           <div>
             <p className="text-xs tracking-[0.16em] uppercase text-espresso/50">Stay warm</p>
-            <p className="mt-3 text-sm text-espresso/60">Newsletter â€” slow letters, no spam.</p>
+            <p className="mt-3 text-sm text-espresso/60">Newsletter — slow letters, no spam.</p>
             <form className="mt-3 flex gap-2" action="/api/newsletter" method="post">
               <input
                 name="email"
@@ -44,18 +44,25 @@ export function SiteFooter() {
               >
                 Join
               </button>
-              {/* honeypot */}
               <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
             </form>
-            <p className="mt-6 text-xs text-espresso/40">Â© {new Date().getFullYear()} Cozy Coffee. Made with warmth.</p>
+            <p className="mt-6 text-xs text-espresso/40">© {new Date().getFullYear()} Cozy Coffee. Made with warmth.</p>
           </div>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-4 text-xs text-espresso/40">
-          <Link href="/menu" className="hover:text-espresso">Menu</Link>
-          <Link href="/story" className="hover:text-espresso">Story</Link>
-          <Link href="/journal" className="hover:text-espresso">Journal</Link>
-          <Link href="/visit" className="hover:text-espresso">Visit</Link>
+          <Link href="/menu" className="hover:text-espresso">
+            Menu
+          </Link>
+          <Link href="/story" className="hover:text-espresso">
+            Story
+          </Link>
+          <Link href="/journal" className="hover:text-espresso">
+            Journal
+          </Link>
+          <Link href="/visit" className="hover:text-espresso">
+            Visit
+          </Link>
         </div>
       </div>
     </footer>
