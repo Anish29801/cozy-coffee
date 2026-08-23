@@ -21,6 +21,10 @@ export function MenuBoard() {
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {items.map((item) => (
           <Card key={item.slug} className="overflow-hidden bg-white">
+            {item.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={item.image} alt={item.title} className="h-36 w-full object-cover" />
+            )}
             <CardContent className="p-6">
               <div className="flex items-start justify-between">
                 <h3 className="font-display text-lg font-semibold leading-tight text-espresso">{item.title}</h3>

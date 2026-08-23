@@ -37,7 +37,11 @@ export default function MenuPage() {
 
             <div className="mt-6 grid gap-6 md:grid-cols-2">
               {group.items.map((item) => (
-                <Card key={item.slug} className="bg-white">
+                <Card key={item.slug} className="bg-white overflow-hidden">
+                  {item.image && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={item.image} alt={item.title} className="h-44 w-full object-cover" />
+                  )}
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between gap-4">
                       <h3 className="font-display text-lg font-semibold text-espresso leading-tight">{item.title}</h3>
