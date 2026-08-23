@@ -38,10 +38,10 @@
 ## Phase 2 — Core Pages — Home & Menu (3–4 days)
 *Goal: Deliver the $10k wow — editorial, tactile, warm.*
 
-### Batch 2A — Hero & Home (parallel)
-- [ ] **2.1** `components/site/HeroEditorial.tsx` — Split editorial hero, marginalia, clay CTA, steam/wood imagery — @Rachana — USES DESIGN.md
-- [ ] **2.2** `components/site/EthosStrip.tsx` + `components/site/MenuBoard.tsx` — Board-pinned feel, seasonal notes — @Rachana
-- [ ] **2.3** `app/(marketing)/page.tsx` — Home orchestration (hero → ethos → menu preview → story tease → community → journal → visit) — @Nirman
+  ### Batch 2A — Hero & Home (parallel) ✅ DONE — pending push
+- [x] **2.1** `components/site/HeroEditorial.tsx` — Split editorial hero, marginalia, clay CTA, steam/wood imagery — @Rachana — DONE (warm editorial, slow-bar card, Unsplash film grain, DESIGN.md tokens)
+- [x] **2.2** `components/site/EthosStrip.tsx` + `components/site/MenuBoard.tsx` — Board-pinned feel, seasonal notes — @Rachana — DONE (3 ethos + board from lib/content, board + seasonal note)
+- [x] **2.3** `app/(marketing)/page.tsx` — Home orchestration (hero → ethos → menu preview → story tease → community → journal → visit) — @Nirman — DONE (hero→ethos→menu→story tease→community wall→journal list→visit CTA)
 
 ### Batch 2B — Menu & Story (parallel)
 - [ ] **2.4** `app/(marketing)/menu/page.tsx` — Full menu board with categories, prices, dietary badges, origin story — @Rachana
