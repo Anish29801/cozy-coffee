@@ -1,6 +1,7 @@
 import { HeroEditorial } from "@/components/site/HeroEditorial";
 import { EthosStrip } from "@/components/site/EthosStrip";
 import { MenuBoard } from "@/components/site/MenuBoard";
+import { Testimonials } from "@/components/site/Testimonials";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getJournal } from "@/lib/content";
@@ -69,6 +70,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       {/* Visit */}
       <section className="mx-auto max-w-6xl px-6 py-14">
