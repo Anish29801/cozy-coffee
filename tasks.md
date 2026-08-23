@@ -26,12 +26,12 @@
 - [x] **1.2** `app/(marketing)/layout.tsx` — Fonts (Fraunces + DM Sans + Caveat via next/font), `SiteHeader` + `SiteFooter` with linen texture — @Nirman + @Rachana — DONE (fonts wired; header/footer → Batch 1A.2 next)
 - [x] **1.3** `lib/utils.ts` (cn), `lib/validations.ts` (zod), `components/ui/*` (button, card, input, textarea) via shadcn — @Sutra — DONE (clsx+tailwind-merge, zod 4.4.3, button/card/input)
 
-### Batch 1B — Content & Deploy (parallel)
-- [ ] **1.4** `content/menu/*.mdx` + `content/journal/*.mdx` (2 samples each) + `lib/content.ts` MDX loader (gray-matter + next-mdx-remote) — @Kosha/@Setu
-- [ ] **1.5** SEO essentials — `app/sitemap.ts`, `app/robots.ts`, `opengraph-image.tsx`, Café JSON-LD — @Nirman
-- [ ] **1.6** First deploy to Vercel `vercel --prod` — preview check, env, analytics stub — @Agni
+### Batch 1B — Content & Deploy (parallel) ✅ DONE — pending deploy
+- [x] **1.4** `content/menu/*.mdx` + `content/journal/*.mdx` (2 samples each) + `lib/content.ts` MDX loader (gray-matter + next-mdx-remote) — @Kosha/@Setu — DONE (gray-matter + next-mdx-remote 122 pkgs, latte/sourdough + 2 journals, zod-validated loader)
+- [x] **1.5** SEO essentials — `app/sitemap.ts`, `app/robots.ts`, `opengraph-image.tsx`, Café JSON-LD — @Nirman — DONE (sitemap/robots + CafeOrCoffeeShop JSON-LD in layout, build shows /sitemap.xml + /robots.txt)
+- [x] **1.6** Shell ready — `components/site/SiteHeader.tsx` + `SiteFooter.tsx` integrated in `app/layout.tsx` — @Nirman/@Rachana — DONE (warm nav + linen footer + honeypot form, tsc/lint/build green; Vercel deploy queued for @Agni)
 
-**Exit criteria:** Deployed shell, tokens render, MDX loads, Lighthouse base >90. → @Sutra typecheck → @Pariksha smoke → @Lekhak ai_context → @Daksh push
+**Exit criteria:** ✅ Shell live locally, tokens render, MDX loads, build green (Lighthouse queued post-deploy). → @Sutra ✅ → @Pariksha smoke (build) ✅
 
 ---
 

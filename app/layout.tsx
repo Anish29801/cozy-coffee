@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, DM_Sans, Caveat } from "next/font/google";
 import "./globals.css";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -36,6 +38,25 @@ export const metadata: Metadata = {
   },
 };
 
+const cafeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  name: "Cozy Coffee Café",
+  description: "Friendly, welcoming neighborhood living room — warmth and togetherness in every pour.",
+  url: "https://cozy-coffee.example.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "123 Warmth Lane",
+    addressLocality: "Neighborhood",
+    addressRegion: "City",
+    postalCode: "00000",
+    addressCountry: "US",
+  },
+  openingHours: ["Mo-Fr 07:00-19:00", "Sa-Su 08:00-18:00"],
+  servesCuisine: "Coffee, Pastries",
+  priceRange: "$$",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -43,7 +64,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-espresso">
-        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(cafeJsonLd) }}
+        />
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );
