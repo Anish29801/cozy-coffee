@@ -43,10 +43,10 @@
 - [x] **2.2** `components/site/EthosStrip.tsx` + `components/site/MenuBoard.tsx` — Board-pinned feel, seasonal notes — @Rachana — DONE (3 ethos + board from lib/content, board + seasonal note)
 - [x] **2.3** `app/(marketing)/page.tsx` — Home orchestration (hero → ethos → menu preview → story tease → community → journal → visit) — @Nirman — DONE (hero→ethos→menu→story tease→community wall→journal list→visit CTA)
 
-### Batch 2B — Menu & Story (parallel)
-- [ ] **2.4** `app/(marketing)/menu/page.tsx` — Full menu board with categories, prices, dietary badges, origin story — @Rachana
-- [ ] **2.5** `components/site/StoryTimeline.tsx` + `app/(marketing)/story/page.tsx` — Polaroid timeline — @Rachana
-- [ ] **2.6** `components/site/GalleryMasonry.tsx` + `components/site/CommunityWall.tsx` — Regulars, quotes — @Rachana — UPDATES DESIGN.md if needed
+  ### Batch 2B — Menu & Story (parallel) ✅ DONE
+- [x] **2.4** `app/(marketing)/menu/page.tsx` — Full menu board with categories, prices, dietary badges, origin story — @Rachana — DONE (grouped by category, warm cards, build shows /menu)
+- [x] **2.5** `components/site/StoryTimeline.tsx` + `app/(marketing)/story/page.tsx` — Polaroid timeline — @Rachana — DONE (4 milestones, warm 2018→2026, /story live)
+- [x] **2.6** `components/site/GalleryMasonry.tsx` + `components/site/CommunityWall.tsx` — Regulars, quotes — @Rachana — DONE (masonry + wall pinned notes, ready for Home)
 
 **Exit criteria:** Home & Menu feel print-worthy, motion + textures applied. → @Sutra + @Pariksha + @Lekhak
 
