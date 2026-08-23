@@ -57,14 +57,16 @@ export default function VisitPage() {
 
         <div className="rounded-[24px] border bg-fog shadow-warm overflow-hidden">
           <div className="aspect-[4/3] relative bg-muted">
-            <div className="absolute inset-0 bg-gradient-to-br from-cream via-fog to-wood/10" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="rounded-full bg-espresso text-cream px-5 py-3 text-sm shadow-warm">
-                123 Warmth Lane · Your table here
-              </div>
-            </div>
-            <div className="absolute bottom-3 left-3 right-3 rounded-[16px] border bg-white p-3 text-xs text-espresso/60">
-              Google Maps embed → replace with &lt;iframe&gt; when you have API key. For MVP, link above works — no JS bloat.
+            <iframe
+              title="Cozy Coffee — 123 Warmth Lane"
+              src="https://www.google.com/maps?q=123%20Warmth%20Lane%2C%20New%20York%2C%20NY&z=15&output=embed"
+              className="absolute inset-0 h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <div className="pointer-events-none absolute bottom-3 left-3 rounded-full bg-espresso text-cream px-4 py-2 text-xs shadow-warm">
+              123 Warmth Lane · live map
             </div>
           </div>
           <div className="p-5">
