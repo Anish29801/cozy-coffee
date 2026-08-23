@@ -1,0 +1,107 @@
+# tasks.md — Cozy Coffee Café — $10k Premium NextJS Website
+
+> **Source:** PLAN.md (2026-08-23) + DESIGN.md
+> **Orchestrator:** Vishvakarama — Batched by 3, per AGENTS.md
+> **Stack:** Next.js 15 App Router + TS strict + Tailwind + shadcn/ui + Framer Motion + MDX
+> **How to use:** Mark DONE with ✅, blocked with ❌ + notify. Work 3 at a time → verify → push → next batch.
+
+---
+
+## Bootstrap — DONE ✅
+
+- [x] **0.1** Create `CLAUDE.md` — project context for Claude Code — `Vishvakarama`
+- [x] **0.2** Create `AGENTS.md` — roster & execution rules — `Vishvakarama`
+- [x] **0.3** Create `DESIGN.md` — owned by @Shilpi — palette, type, motion, layout tokens
+- [x] **0.4** Create `PLAN.md` — 4-phase $10k plan for client review — `Vishvakarama + @Karya/@Chitragupta/@Shilpi`
+
+> **Awaiting:** Your review of PLAN.md → reply `approved — start Phase 1` to unlock Phase 1.
+
+---
+
+## Phase 1 — Bootstrap & Foundation (1–2 days)
+*Goal: Craft system live — tokens, shell, content layer, first deploy.*
+
+### Batch 1A — Foundation (parallel)
+- [ ] **1.1** `app/globals.css` + `tailwind.config.ts` — Implement DESIGN.md tokens as CSS vars (cream/wood/clay/espresso/fog/moss/gold) + Tailwind theme — @Nirman/@Rachana
+- [ ] **1.2** `app/(marketing)/layout.tsx` — Fonts (Fraunces + DM Sans + Caveat via next/font), `SiteHeader` + `SiteFooter` with linen texture — @Nirman + @Rachana
+- [ ] **1.3** `lib/utils.ts` (cn), `lib/validations.ts` (zod), `components/ui/*` (button, card, input, textarea) via shadcn — @Sutra
+
+### Batch 1B — Content & Deploy (parallel)
+- [ ] **1.4** `content/menu/*.mdx` + `content/journal/*.mdx` (2 samples each) + `lib/content.ts` MDX loader (gray-matter + next-mdx-remote) — @Kosha/@Setu
+- [ ] **1.5** SEO essentials — `app/sitemap.ts`, `app/robots.ts`, `opengraph-image.tsx`, Café JSON-LD — @Nirman
+- [ ] **1.6** First deploy to Vercel `vercel --prod` — preview check, env, analytics stub — @Agni
+
+**Exit criteria:** Deployed shell, tokens render, MDX loads, Lighthouse base >90. → @Sutra typecheck → @Pariksha smoke → @Lekhak ai_context → @Daksh push
+
+---
+
+## Phase 2 — Core Pages — Home & Menu (3–4 days)
+*Goal: Deliver the $10k wow — editorial, tactile, warm.*
+
+### Batch 2A — Hero & Home (parallel)
+- [ ] **2.1** `components/site/HeroEditorial.tsx` — Split editorial hero, marginalia, clay CTA, steam/wood imagery — @Rachana — USES DESIGN.md
+- [ ] **2.2** `components/site/EthosStrip.tsx` + `components/site/MenuBoard.tsx` — Board-pinned feel, seasonal notes — @Rachana
+- [ ] **2.3** `app/(marketing)/page.tsx` — Home orchestration (hero → ethos → menu preview → story tease → community → journal → visit) — @Nirman
+
+### Batch 2B — Menu & Story (parallel)
+- [ ] **2.4** `app/(marketing)/menu/page.tsx` — Full menu board with categories, prices, dietary badges, origin story — @Rachana
+- [ ] **2.5** `components/site/StoryTimeline.tsx` + `app/(marketing)/story/page.tsx` — Polaroid timeline — @Rachana
+- [ ] **2.6** `components/site/GalleryMasonry.tsx` + `components/site/CommunityWall.tsx` — Regulars, quotes — @Rachana — UPDATES DESIGN.md if needed
+
+**Exit criteria:** Home & Menu feel print-worthy, motion + textures applied. → @Sutra + @Pariksha + @Lekhak
+
+---
+
+## Phase 3 — Depth & Utility (2–3 days)
+*Goal: Make it useful and fast.*
+
+### Batch 3A — Utility (parallel)
+- [ ] **3.1** `app/(marketing)/visit/page.tsx` — Hours, map embed, amenities, parking, FAQs — @Rachana
+- [ ] **3.2** `app/(marketing)/journal/page.tsx` + `app/(marketing)/journal/[slug]/page.tsx` + `components/site/JournalCard.tsx` — MDX rendering — @Nirman/@Rachana
+- [ ] **3.3** `components/site/ReservationForm.tsx` + `app/api/reserve/route.ts` + `app/api/newsletter/route.ts` — rhf+zod+honeypot — @Setu + @Sutra
+
+### Batch 3B — Polish & Perf (parallel)
+- [ ] **3.4** Texture & motion pass — `components/site/TextureOverlay.tsx`, parallax ≤8%, entrance choreography (Framer Motion) — @Rachana
+- [ ] **3.5** Performance pass — `next/image` sizing/priority, font subsetting, `loading.tsx` skeletons, ISR — @Nirman
+- [ ] **3.6** Full type audit + Vitest + Playwright smoke — @Sutra + @Pariksha
+
+**Exit criteria:** All routes live, forms validated, a11y AA, LCP <2s. → @Daksh push
+
+---
+
+## Phase 4 — $10k Polish & Handoff (1–2 days)
+*Goal: Justify the invoice.*
+
+### Batch 4A — Craft (parallel)
+- [ ] **4.1** Content polish — Real copy, curated film-grain imagery, micro-copy voice pass ("your usual table?") — @Shilpi + @Granth
+- [ ] **4.2** SEO final — Local `CafeOrCoffeeShop` JSON-LD, OG per page, `next/metadata` audit — @Nirman
+- [ ] **4.3** Security review — honeypot, rate-limit, headers — @Rakshak (read-only)
+
+### Batch 4B — Reviews & Ship (parallel)
+- [ ] **4.4** Code review — @Vivek (read-only) — handoff to @Rakshak if security flags
+- [ ] **4.5** `README.md` + client handoff guide — how to edit `content/menu` & `content/journal` — @Granth + @Lekhak
+- [ ] **4.6** Vercel prod + Railway fallback, domain, env vars, analytics — @Agni + @Daksh
+
+**Exit criteria:** Client can run, edit, and show off. Invoice-ready.
+
+---
+
+## Backlog / Parking Lot (999.x)
+
+- [ ] **999.1** Online ordering integration (out of $10k scope — park until Phase 5)
+- [ ] **999.2** Sanity CMS migration — if client wants CMS later
+- [ ] **999.3** Events calendar + community board submissions
+- [ ] **999.4** i18n if café expands
+
+---
+
+## Progress Log
+
+| Date | Phase/Batch | Notes |
+|------|-------------|-------|
+| 2026-08-23 | Bootstrap | CLAUDE.md, AGENTS.md, DESIGN.md, PLAN.md created — awaiting approval |
+| | | |
+
+---
+
+**Next action:** Reply `approved` to start **Phase 1 Batch 1A (1.1 + 1.2 + 1.3 in parallel)**.

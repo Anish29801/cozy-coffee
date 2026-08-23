@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* DESIGN.md tokens — $10k warmth system */
+:root {
+  --cream: #fff8f0;
+  --wood: #8b5a2b;
+  --clay: #c17c60;
+  --espresso: #3c2415;
+  --fog: #f3ede8;
+  --moss: #7a8a6a;
+  --gold: #d4a574;
+
+  --background: var(--cream);
+  --foreground: var(--espresso);
+  --muted: var(--fog);
+  --border: rgba(60, 36, 21, 0.08);
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-wood: var(--wood);
+  --color-clay: var(--clay);
+  --color-espresso: var(--espresso);
+  --color-fog: var(--fog);
+  --color-moss: var(--moss);
+  --color-gold: var(--gold);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  --font-display: var(--font-fraunces), serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui;
+  --font-hand: var(--font-caveat), cursive;
+
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* editorial rhythm */
+::selection {
+  background: rgba(193, 124, 96, 0.25);
+}
+
+/* warm shadow token */
+.shadow-warm {
+  box-shadow: 0 12px 32px rgba(60, 36, 21, 0.08);
+}
