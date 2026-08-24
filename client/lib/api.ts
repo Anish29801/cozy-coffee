@@ -28,6 +28,8 @@ export const api = {
     delete: (id: string) => request<unknown>(`/api/menu/${id}`, { method: 'DELETE' }),
   },
   reservations: {
+    create: (data: { name: string; email?: string; phone?: string; date: string; time: string; partySize: number; notes?: string }) =>
+      request<unknown>('/api/reservations', { method: 'POST', body: JSON.stringify(data) }),
     list: (params?: string) => request<unknown[]>(`/api/reservations${params ? `?${params}` : ''}`),
     get: (id: string) => request<unknown>(`/api/reservations/${id}`),
     updateStatus: (id: string, status: string) =>
@@ -35,6 +37,8 @@ export const api = {
     delete: (id: string) => request<unknown>(`/api/reservations/${id}`, { method: 'DELETE' }),
   },
   newsletter: {
+    subscribe: (data: { email: string; name?: string }) =>
+      request<unknown>('/api/newsletter/subscribe', { method: 'POST', body: JSON.stringify(data) }),
     list: () => request<unknown[]>('/api/newsletter/subscribers'),
     stats: () => request<{ totalActive: number; totalUnsubscribed: number; thisMonth: number }>('/api/newsletter/stats'),
     remove: (id: string) => request<unknown>(`/api/newsletter/subscribers/${id}`, { method: 'DELETE' }),

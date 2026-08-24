@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { api } from "@/lib/api";
 
 export function ReservationForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -12,26 +13,32 @@ export function ReservationForm() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const payload = {
-      name: String(data.get("name") || ""),
-      email: String(data.get("email") || ""),
-      date: String(data.get("date") || ""),
-      party: String(data.get("party") || "2"),
-      note: String(data.get("note") || ""),
-      company: String(data.get("company") || ""),
-    };
+
+    const name = String(data.get("name") || "");
+    const email = String(data.get("email") || "");
+    const dateStr = String(data.get("date") || "");
+    const partySize = Number(data.get("party") || 2);
+    const notes = String(data.get("note") || "");
+    const company = String(data.get("company") || "");
+
+    if (company.length > 0) {
+      setStatus("error");
+      setMsg("Something went wrong — try again");
+      return;
+    }
 
     setStatus("loading");
     setMsg("");
 
     try {
-      const res = await fetch("/api/reserve", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      await api.reservations.create({
+        name,
+        email: email || undefined,
+        date: dateStr,
+        time: "19:00",
+        partySize,
+        notes: notes || undefined,
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Something went wrong");
       setStatus("success");
       setMsg("Warm — we got your request. We'll remember your name.");
       form.reset();

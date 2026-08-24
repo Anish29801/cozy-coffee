@@ -14,8 +14,8 @@ interface Testimonial {
   sortOrder: number;
 }
 
-const emptyForm = {
-  name: '', role: '', gender: 'female' as const, image: '', text: '',
+const emptyForm: { name: string; role: string; gender: 'male' | 'female'; image: string; text: string; active: boolean; sortOrder: number } = {
+  name: '', role: '', gender: 'female', image: '', text: '',
   active: true, sortOrder: 0,
 };
 

@@ -1,6 +1,34 @@
+'use client';
+
 import Link from "next/link";
+import { useState } from "react";
+import { api } from "@/lib/api";
 
 export function SiteFooter() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [msg, setMsg] = useState("");
+
+  async function handleSubscribe(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const email = String(data.get("email") || "");
+    const company = String(data.get("company") || "");
+
+    if (!email || company.length > 0) return;
+
+    setStatus("loading");
+    try {
+      await api.newsletter.subscribe({ email });
+      setStatus("success");
+      setMsg("Welcome — you're in.");
+      form.reset();
+    } catch {
+      setStatus("error");
+      setMsg("Couldn't join — try again later");
+    }
+  }
+
   return (
     <footer className="border-t bg-fog/50 mt-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
@@ -31,21 +59,26 @@ export function SiteFooter() {
           <div>
             <p className="text-xs tracking-[0.16em] uppercase text-espresso/50">Stay warm</p>
             <p className="mt-3 text-sm text-espresso/60">Newsletter — slow letters, no spam.</p>
-            <form className="mt-3 flex gap-2" action="/api/newsletter" method="post">
+            <form className="mt-3 flex gap-2" onSubmit={handleSubscribe}>
               <input
                 name="email"
                 type="email"
+                required
                 placeholder="you@youremail.com"
                 className="flex-1 rounded-full border bg-white px-4 py-2 text-sm placeholder:text-espresso/40 focus:outline-none focus:ring-2 focus:ring-clay"
               />
               <button
                 type="submit"
-                className="rounded-full bg-clay px-5 py-2 text-sm font-medium text-white hover:bg-espresso transition-colors"
+                disabled={status === "loading"}
+                className="rounded-full bg-clay px-5 py-2 text-sm font-medium text-white hover:bg-espresso transition-colors disabled:opacity-50"
               >
-                Join
+                {status === "loading" ? "…" : "Join"}
               </button>
               <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
             </form>
+            {msg && (
+              <p className={`mt-2 text-xs ${status === "success" ? "text-moss" : "text-clay"}`}>{msg}</p>
+            )}
             <p className="mt-6 text-xs text-espresso/40">© {new Date().getFullYear()} Cozy Coffee. Made with warmth.</p>
           </div>
         </div>
