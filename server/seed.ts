@@ -18,7 +18,7 @@ const sampleMenuItems = [
     allergens: [],
     origin: 'Ethiopia, Yirgacheffe',
     story: 'We fell in love with this lot during a cupping session in Addis Ababa. Every sip is a journey.',
-    imageUrl: '/images/menu/slow-bar.jpg',
+    imageUrl: '/images/menu/slow-bar.svg',
     sortOrder: 1,
   },
   {
