@@ -3,6 +3,7 @@ import { newsletterService } from '../services/newsletter.service';
 import { SubscribeSchema } from '../schemas/newsletter';
 import { validate } from '../middleware/validate';
 import { formLimiter } from '../middleware/rate-limiter';
+import { asyncHandler } from '../lib/async-handler';
 import type { ApiResponse } from '../lib/types';
 
 const router = Router();
@@ -12,7 +13,7 @@ router.post(
   '/subscribe',
   formLimiter,
   validate(SubscribeSchema, 'body'),
-  async (req: Request, res: Response): Promise<void> => {
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
     const { email, name } = req.body;
     const result = await newsletterService.subscribe(email, name);
 
@@ -22,14 +23,14 @@ router.post(
     };
 
     res.status(201).json(response);
-  }
+  })
 );
 
 // DELETE /api/newsletter/unsubscribe/:token
 router.delete(
   '/unsubscribe/:token',
   formLimiter,
-  async (req: Request, res: Response): Promise<void> => {
+  asyncHandler(async (req: Request, res: Response): Promise<void> => {
     const token = String(req.params.token ?? '');
     const result = await newsletterService.unsubscribe(token);
 
@@ -39,11 +40,11 @@ router.delete(
     };
 
     res.json(response);
-  }
+  })
 );
 
 // GET /api/newsletter/subscribers
-router.get('/subscribers', async (_req: Request, res: Response): Promise<void> => {
+router.get('/subscribers', asyncHandler(async (_req: Request, res: Response): Promise<void> => {
   const result = await newsletterService.listActive();
 
   const response: ApiResponse<typeof result.subscribers> = {
@@ -53,10 +54,10 @@ router.get('/subscribers', async (_req: Request, res: Response): Promise<void> =
   };
 
   res.json(response);
-});
+}));
 
 // GET /api/newsletter/stats
-router.get('/stats', async (_req: Request, res: Response): Promise<void> => {
+router.get('/stats', asyncHandler(async (_req: Request, res: Response): Promise<void> => {
   const stats = await newsletterService.getStats();
 
   const response: ApiResponse<typeof stats> = {
@@ -65,6 +66,6 @@ router.get('/stats', async (_req: Request, res: Response): Promise<void> => {
   };
 
   res.json(response);
-});
+}));
 
 export default router;
