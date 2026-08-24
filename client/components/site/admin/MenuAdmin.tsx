@@ -76,10 +76,14 @@ export function MenuAdmin() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const payload = {
+    const payload: Record<string, unknown> = {
       ...form,
       allergens: form.allergens ? form.allergens.split(',').map((a) => a.trim()).filter(Boolean) : [],
     };
+    // Strip empty optional fields so Zod doesn't reject them
+    ['description', 'origin', 'imageUrl', 'story'].forEach((k) => {
+      if (payload[k] === '' || payload[k] === undefined) delete payload[k];
+    });
 
     try {
       if (editing) {
