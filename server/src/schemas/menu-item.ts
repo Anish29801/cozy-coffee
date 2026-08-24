@@ -5,6 +5,11 @@ const menuCategories = [
   'pastries', 'light_bite', 'lunch',
 ] as const;
 
+const emptyToUndefined = z.preprocess(
+  (val) => (val === '' || val === null ? undefined : val),
+  z.string().url().max(500).optional()
+);
+
 export const CreateMenuItemSchema = z.object({
   title: z.string().min(1, 'Title is required').max(150),
   slug: z
@@ -12,16 +17,25 @@ export const CreateMenuItemSchema = z.object({
     .min(1)
     .max(150)
     .regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens')
-    .optional(), // auto-generated from title if omitted
-  description: z.string().max(2000).optional(),
+    .optional(),
+  description: z.preprocess(
+    (val) => (val === '' || val === null ? undefined : val),
+    z.string().max(2000).optional()
+  ),
   price: z.string().min(1, 'Price is required').max(20),
   category: z.enum(menuCategories),
   seasonal: z.boolean().default(false),
   available: z.boolean().default(true),
   allergens: z.array(z.string()).default([]),
-  origin: z.string().max(200).optional(),
-  story: z.string().max(500).optional(),
-  imageUrl: z.string().url().max(500).optional(),
+  origin: z.preprocess(
+    (val) => (val === '' || val === null ? undefined : val),
+    z.string().max(200).optional()
+  ),
+  story: z.preprocess(
+    (val) => (val === '' || val === null ? undefined : val),
+    z.string().max(500).optional()
+  ),
+  imageUrl: emptyToUndefined,
   sortOrder: z.number().int().default(0),
 });
 
