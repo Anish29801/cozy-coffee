@@ -94,7 +94,32 @@ A $10k site must feel *handcrafted*. No templates. No soulless minimalism. Every
 - Alt text that tells a story.
 - No motion without reduced-motion fallback.
 
+## 12. Admin Dashboard
+
+- **Route:** `/admin` — 4-tab panel (Menu, Reservations, Newsletter, Testimonials)
+- **Data source:** Express API at `NEXT_PUBLIC_API_URL` (production: `https://api-production-d37f.up.railway.app`)
+- **CRUD panels:** `MenuAdmin`, `ReservationsAdmin`, `NewsletterAdmin`, `TestimonialsAdmin`
+- **Design:** Same warm palette, editorial feel. Not a cold admin dashboard. Cards, generous spacing, clay accents.
+
+## 13. API Integration
+
+- **Client → API:** `client/lib/api.ts` wraps all fetch calls using `NEXT_PUBLIC_API_URL` env var
+- **Forms (Reservation, Newsletter):** POST to Express API, not Next.js route handlers
+- **Menu page:** Fetches live menu data from `/api/menu`, filterable by category
+- **Testimonials:** Fetches active testimonials from `/api/testimonials` for community wall
+- **Admin:** Full CRUD for all 4 resources via Express API
+
+## 14. Deployment
+
+| Service | Platform | URL | Notes |
+|---------|----------|-----|-------|
+| Client | Vercel | https://client-two-mu-19.vercel.app | Next.js, auto-deploys from GitHub |
+| API | Railway | https://api-production-d37f.up.railway.app | Express + TypeScript |
+| Database | Railway | Internal (mongodb.railway.internal) | MongoDB 6.x, provisioned via Railway template |
+| Source | GitHub | https://github.com/Anish29801/cozy-coffee | master branch |
+
 ---
 
 **For @Nirman:** Use this for route layouts — editorial rhythm over dashboard density.
 **For @Rachana:** Keep this file in sync as components ship. Any deviation → flag to Vishvakarama.
+**For @Agni:** Deployments — Vercel (client), Railway (API). Environment variables: `NEXT_PUBLIC_API_URL` in Vercel, `MONGODB_URI`, `CORS_ORIGINS`, `JWT_SECRET`, `NODE_ENV` in Railway.
